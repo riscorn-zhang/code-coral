@@ -22,27 +22,32 @@ class CodeResponser:
         return self.make_code(prompt)
 
     def make_code(self,prompt:str)->str:
-        self.message_list.append(
-            {
-                'role': 'user',
-                'content': prompt
-            },
-        )
-        stream = ollama.chat(
-            model='codegemma',
-            messages=self.message_list,
-            stream=True
-        )
-        tmp_file = os.path.join(globals.globals["tmp_dir"], str(time.time())+".py")
+        while True:
+            self.message_list.append(
+                {
+                    'role': 'user',
+                    'content': prompt
+                },
+            )
+            stream = ollama.chat(
+                model='codegemma',
+                messages=self.message_list,
+                stream=True
+            )
+            tmp_file = os.path.join(globals.globals["tmp_dir"], str(time.time())+".py")
 
-        original_response = ""
-        code_response = ""
+            original_response = ""
+            code_response = ""
 
-        for chunk in stream:
-            print(chunk['message']['content'], end='', flush=True)
-            original_response += chunk['message']['content']
-
-        code_response = self.extract_code_blocks(original_response)[0]
+            for chunk in stream:
+                print(chunk['message']['content'], end='', flush=True)
+                original_response += chunk['message']['content']
+        
+            try:
+                code_response = self.extract_code_blocks(original_response)[0]
+                break
+            except:
+                pass
 
         self.message_list.append(
             {
