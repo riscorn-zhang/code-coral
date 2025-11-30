@@ -1,0 +1,42 @@
+### Python 编译和运行时文件 ###
+
+# 字节码文件 (Python Compiled Files)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# setup.py 产生的 dist/ 构建目录
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# 安装/虚拟环境 (Environments)
+# 推荐使用虚拟环境，并将它们排除在版本控制之外
+venv/
+env/
+.venv/
+.tox/
+.nox/
+
+# PyInstaller, PyOxidizer, Nuitka 等打包工具的输出
+# 它们通常包含编译后的可执行文件和临时文件
+*.exe
+*.dll
+*.so
+*.dylib
+target/
+
+# Coverage.py 文件
+.coverage
+.coverage.*
+htmlcov/
+.cache/
+
+# Sphinx/MkDocs 等文档生成工具的输出
+docs/_build/
+
+# 日志文件
+*.log
+log/
+tmp/

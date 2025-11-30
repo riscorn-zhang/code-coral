@@ -1,0 +1,1 @@
+print("\nSyntax module initialized.\n");
