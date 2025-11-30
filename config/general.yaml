@@ -1,0 +1,13 @@
+# Frequency of debuging work of ai and human 
+# For example if frequencyDebugForAI = 3 and frequencyDebugForHuman = 1 
+# that means the full program is like AAAHAAAHAAAH......(A = ai, H = human)
+
+# [int]
+
+
+
+debuging:
+  isSimultaneous:false
+
+  frequencyDebugForAI:1
+  frequencyDebugForHuman:1
