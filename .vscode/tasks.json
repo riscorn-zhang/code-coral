@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Pylint: Lint Current File",
+    "command": "python",
+    "args": ["-m", "pylint", "${file}"],
+    "problemMatcher": ["$pylint"]
+  },
+  {
+    "name": "Black: Format Current File",
+    "command": "python",
+    "args": ["-m", "black", "${file}"],
+    "problemMatcher": []
+  },
+  {
+    "name": "isort: Sort Imports",
+    "command": "python",
+    "args": ["-m", "isort", "${file}"],
+    "problemMatcher": []
+  },
+  {
+    "name": "Pytest: Run Tests",
+    "command": "python",
+    "args": ["-m", "pytest", "-v"],
+    "problemMatcher": ["$pytest"]
+  }
+]

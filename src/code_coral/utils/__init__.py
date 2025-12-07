@@ -8,13 +8,13 @@ import os
 
 def locate_directory(item_name: str) -> str:
     """定位给定项目的所在目录。
-    
+
     Args:
         item_name: 项目名称或文件路径
-        
+
     Returns:
         项目所在目录的绝对路径
-        
+
     Example:
         >>> locate_directory(__file__)
         '/path/to/project'

@@ -4,23 +4,26 @@
 """
 
 import os
-from typing import Any, Dict
+from typing import Any
 
-from syntax import directory_operations
+from .utils import directory_operations
 
 # 项目配置目录
 config_dir = os.path.join(
-    directory_operations.locate_directory(__file__), "config"
+    directory_operations.locate_directory(__file__),
+    "..",
+    "..",
+    "config",
 )
 
 
 def get_config(item: str, name: str) -> Any:
     """从配置文件获取配置值。
-    
+
     Args:
         item: 配置文件名称（含扩展名）
         name: 配置项的键
-        
+
     Returns:
         配置项的值
     """
