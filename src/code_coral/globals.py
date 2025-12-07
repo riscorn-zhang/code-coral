@@ -5,10 +5,10 @@
 
 import os
 import tempfile
-from typing import Dict
+from typing import Any, Dict
 
 # 全局配置字典
-globals: Dict[str, any] = {
+globals: Dict[str, Any] = {
     "tmp_dir": os.path.join(tempfile.gettempdir(), "CodeCoral"),
     "initialed": False,
 }
@@ -16,7 +16,7 @@ globals: Dict[str, any] = {
 
 def init() -> None:
     """初始化全局配置。
-    
+
     创建必要的临时目录。
     """
     os.makedirs(globals["tmp_dir"], exist_ok=True)

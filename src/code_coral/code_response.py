@@ -5,18 +5,17 @@
 
 import os
 import time
-from typing import List, Dict
+from typing import Dict, List
 
 import markdown_it
 import ollama
 
-import globals
-import load_prompt
+from . import globals, load_prompt
 
 
 class CodeResponser:
     """负责代码生成和修改的类。
-    
+
     与 Ollama AI 模型交互，根据用户需求生成代码，并能根据建议和异常反馈进行修改。
     """
 
@@ -26,7 +25,7 @@ class CodeResponser:
 
     def __init__(self) -> None:
         """初始化 CodeResponser。
-        
+
         设置系统提示和对话历史。
         """
         self.message_list.append(
@@ -38,10 +37,10 @@ class CodeResponser:
 
     def make_original_code(self, requirement: str) -> str:
         """根据用户需求生成初始代码。
-        
+
         Args:
             requirement: 用户描述的功能需求
-            
+
         Returns:
             生成的代码文件路径
         """
@@ -49,10 +48,10 @@ class CodeResponser:
 
     def make_suggested_code(self, requirement: str) -> str:
         """根据用户建议修改代码。
-        
+
         Args:
             requirement: 用户的建议内容
-            
+
         Returns:
             修改后的代码文件路径
         """
@@ -63,10 +62,10 @@ class CodeResponser:
 
     def make_excepted_code(self, requirement: str) -> str:
         """根据异常信息修复代码。
-        
+
         Args:
             requirement: 异常信息或错误描述
-            
+
         Returns:
             修复后的代码文件路径
         """
@@ -77,10 +76,10 @@ class CodeResponser:
 
     def make_code(self, prompt: str) -> str:
         """与 AI 模型交互生成或修改代码。
-        
+
         Args:
             prompt: 发送给 AI 模型的提示
-            
+
         Returns:
             保存生成代码的文件路径
         """
@@ -126,10 +125,10 @@ class CodeResponser:
 
     def extract_code_blocks(self, markdown_text: str) -> List[str]:
         """从 Markdown 文本中提取代码块。
-        
+
         Args:
             markdown_text: 包含代码块的 Markdown 文本
-            
+
         Returns:
             代码块列表
         """

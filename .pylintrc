@@ -1,0 +1,27 @@
+[MASTER]
+# Python 代码检查配置
+
+[FORMAT]
+# 单行最大长度
+max-line-length=120
+
+# 缩进宽度
+indent-string='    '
+
+[MESSAGES CONTROL]
+disable=
+    missing-module-docstring,
+    missing-function-docstring,
+    
+[DESIGN]
+# 函数参数最大数
+max-args=5
+
+# 本地变量最大数
+max-locals=15
+
+# 分支复杂度最大值
+max-branches=12
+
+# 语句最大数
+max-statements=50
